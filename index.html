@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="styles/style.css" />
+	</head>
+	<body>
+		<h1 class="text-primary">Burger menu project</h1>
+		<div class="container mt-5">
+			<div class="row">
+				<div class="col-md-12">
+					<p class="fw-semibold text-primary border-bottom border-primary py-3">
+						Alert in Bootstrap
+					</p>
+
+					<div class="alert alert-primary">This is Sample Alert</div>
+					<div class="alert alert-secondary">This is Sample Alert</div>
+					<div class="alert alert-success">This is Sample Alert</div>
+					<div class="alert alert-danger">This is Sample Alert</div>
+					<div class="alert alert-warning">This is Sample Alert</div>
+					<div class="alert alert-info">This is Sample Alert</div>
+					<div class="alert alert-light">This is Sample Alert</div>
+					<div class="alert alert-dark">This is Sample Alert</div>
+
+					<p class="fw-semibold text-primary border-bottom border-primary py-3">
+						Alert With Link in Bootstrap
+					</p>
+
+					<div class="alert alert-primary">
+						This is Sample Alert <a href="#" class="alert-link">Click Here </a>
+					</div>
+					<div class="alert alert-secondary">
+						This is Sample Alert <a href="#" class="alert-link">Click Here </a>
+					</div>
+					<div class="alert alert-success">
+						This is Sample Alert <a href="#" class="alert-link">Click Here </a>
+					</div>
+					<div class="alert alert-danger">
+						This is Sample Alert <a href="#" class="alert-link">Click Here </a>
+					</div>
+					<div class="alert alert-warning">
+						This is Sample Alert <a href="#" class="alert-link">Click Here </a>
+					</div>
+					<div class="alert alert-info">
+						This is Sample Alert <a href="#" class="alert-link">Click Here </a>
+					</div>
+					<div class="alert alert-light">
+						This is Sample Alert <a href="#" class="alert-link">Click Here </a>
+					</div>
+					<div class="alert alert-dark">
+						This is Sample Alert <a href="#" class="alert-link">Click Here </a>
+					</div>
+
+					<p class="fw-semibold text-primary border-bottom border-primary py-3">
+						Alert With Icons in Bootstrap
+					</p>
+					<div class="alert alert-primary">
+						<i class="bi-alarm"></i>
+						This is Sample Alert
+					</div>
+					<div class="alert alert-secondary d-flex align-items-center gap-3">
+						<i class="bi-apple"></i>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis ipsum
+						eligendi quia voluptates! Voluptatibus laudantium fuga veniam magni
+						cum ea earum est accusantium corrupti iure ad animi nulla, dolores
+						numquam.
+					</div>
+
+					<p class="fw-semibold text-primary border-bottom border-primary py-3">
+						Alert With Additional Content in Bootstrap
+					</p>
+
+					<div class="alert alert-primary">
+						<h3 class="alert-heading">Sample Heading</h3>
+						<p>
+							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum,
+							nisi cum. Sit iure reprehenderit numquam blanditiis qui, ab nobis,
+							dolorem deserunt alias illum cum dolorum laudantium ipsum dicta a
+							omnis.
+						</p>
+						<hr />
+						<p class="mb-0">
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
+							temporibus minima labore ipsa consequuntur sint!
+						</p>
+					</div>
+					<hr class="my-3" />
+					<p class="fw-semibold text-primary border-bottom border-primary py-3">
+						Dismissing Alert in Bootstrap
+					</p>
+					<div class="alert alert-danger alert-dismissible fade show">
+						This is a Dismissible Alert
+						<button
+							type="button"
+							class="btn-close"
+							style="font-size: 11px"
+							data-bs-dismiss="alert"
+						></button>
+					</div>
+					<div class="alert alert-warning alert-dismissible fade show">
+						This is a Dismissible Alert
+						<button
+							type="button"
+							class="btn-close"
+							data-bs-dismiss="alert"
+						></button>
+					</div>
+
+					<hr class="my-3" />
+					<p class="text-primary fw-semibold">Dynamic Alert in Bootstrap</p>
+
+					<div id="live-alert"></div>
+					<button class="btn btn-primary" id="btn-alert">Show Alert</button>
+
+					<!--Col end -->
+				</div>
+
+				<!--Row End-->
+			</div>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+		<script>
+			const alertDiv = document.getElementById('live-alert');
+
+			const appendAlert = (message, type = 'success') => {
+				/*const wrapper = document.createElement("div");
+			     wrapper.classList.add("alert", "alert-" + type, "alert-dismissible");
+			     wrapper.innerHTML = message;
+			     const btn = document.createElement("button");
+			     btn.classList.add("btn-close");
+			     btn.setAttribute("data-bs-dismiss", "alert");
+			     wrapper.append(btn);*/
+
+				const alert = `
+			     <div id="new_alert" class="alert alert-${type} alert-dismissible fade show">
+			         ${message}
+			         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+			       </div>
+
+			     `;
+				return alert;
+			};
+
+			document.getElementById('btn-alert').addEventListener('click', () => {
+				alertDiv.innerHTML = appendAlert('This is Sample Message', 'danger');
+				setTimeout(() => {
+					if (document.querySelector('div#new_alert > button.btn-close'))
+						document.querySelector('div#new_alert > button.btn-close').click();
+				}, 3000);
+			});
+		</script>
+	</body>
+</html>
